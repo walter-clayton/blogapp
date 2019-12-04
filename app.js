@@ -26,16 +26,12 @@ var blogSchema = new mongoose.Schema({
 
 var Blog = mongoose.model("Blog", blogSchema);
 
-Blog.create({
-    // title: "Test Blog",
-    // image: "https://images.unsplash.com/photo-1567185942269-dc5d364a5c62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
-    // body: "Hello this is a blog post!"
-});
+// Blog.create({
+//     title: "Test Blog",
+//     image: "https://images.unsplash.com/photo-1567185942269-dc5d364a5c62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+//     body: "Hello this is a blog post!"
+// });
 
-//title
-//image
-//body
-//created
 
 // RESTFUL ROUTES
 
@@ -72,6 +68,20 @@ app.post("/blogs", function(req, res){
     });
 });
 
+// SHOW ROUTE
+app.get("/blogs/:id", function(req, res){
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err){
+            console.log("error")
+            res.redirect("/blogs");
+        } else {
+            res.render("show", {blog: foundBlog});
+        }
+    });
+});
+
+
+// CONNECT TO PORTS
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("SERVER IS RUNNING!");
 });
