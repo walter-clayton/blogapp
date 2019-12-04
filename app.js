@@ -27,9 +27,9 @@ var blogSchema = new mongoose.Schema({
 var Blog = mongoose.model("Blog", blogSchema);
 
 Blog.create({
-    title: "Test Blog",
-    image: "https://images.unsplash.com/photo-1567185942269-dc5d364a5c62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
-    body: "Hello this is a blog post!"
+    // title: "Test Blog",
+    // image: "https://images.unsplash.com/photo-1567185942269-dc5d364a5c62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+    // body: "Hello this is a blog post!"
 });
 
 //title
